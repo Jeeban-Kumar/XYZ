@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 style="color:green;text-align:center">Update OrderMethod page</h1>
+<form th:action="@{/ordermethod/update}" method="post" th:object="${orderMethod}">
+	Order ID   :
+		<input type="text" th:field="*{id}" readonly="readonly"/>
+		<br>
+	Order Mode :
+		<input type="radio" th:field="*{orderMode}" value="Sale"/>Sale
+		<input type="radio" th:field="*{orderMode}" value="Purchase"/>Purchase
+		<br>
+		Order Code :
+		<input type="text" th:field="*{orderCode}"/>
+		<br>
+		Order Type :
+		<select th:field="*{orderType}">
+			<option value="">-select-</option>
+			<option value="FIFO">FIFO</option>
+			<option value="LIFO">LIFO</option>
+			<option value="FCFO">FCFO</option>
+			<option value="FEFO">FEFO</option>
+		</select>
+		<br>
+		Order Accept :
+		<input type="checkbox" th:field="*{orderAccept}" value="Multi-Model"/>Multi-Model
+		<input type="checkbox" th:field="*{orderAccept}" value="Accept Return"/>Accept Return
+		<br>
+		Description :
+		<textarea inputmode="text" th:field="*{description}"></textarea>
+		<br>
+		<input type="submit" value="Update OrderMethod">
+</form>
+</body>
+</html>

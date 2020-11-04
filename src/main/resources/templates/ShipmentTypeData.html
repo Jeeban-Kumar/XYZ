@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Fetch All ShipmentType</title>
+</head>
+<body>
+	<h1 style="color:red;text-align: left;">All ShipmentType Records :</h1>
+	<table border="1">
+		<tr>
+			<th>Shipment ID</th>
+			<th>Shipment Mode</th>
+			<th>Shipment Code</th>
+			<th>Enable Shipment</th>
+			<th>Shipment Grade</th>
+			<th>Description</th>
+			<th colspan="2">Actions</th>
+		</tr>
+		<tr th:each="ob:${list}">
+			<td th:text="${ob.id}"></td>
+			<td th:text="${ob.shipmentMode}"></td>
+			<td th:text="${ob.shipmentCode}"></td>
+			<td th:text="${ob.enableShipment}"></td>
+			<td th:text="${ob.shipmentGrade}"></td>
+			<td th:text="${ob.description}"></td>
+			<td>
+			<a th:href="@{/shipmenttype/delete/{id}(id=${ob.id})}">DELETE</a>
+			</td>
+			<td>
+			<a th:href="@{/shipmenttype/edit/{id}(id=${ob.id})}">EDIT</a>
+			</td>
+		</tr>
+	</table>
+	<span th:text="${message}"></span>
+</body>
+</html>

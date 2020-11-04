@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Get All UOM records</title>
+</head>
+<body>
+	<h1 style="color: blue;text-align: left;">All Records of UOM :</h1>
+	<table border="1">
+		<tr>
+			<th>UOM ID</th>
+			<th>UOM Type</th>
+			<th>UOM Model</th>
+			<th>Description</th>
+		</tr>
+		<tr th:each="uom:${list}">
+			<td th:text="${uom.uid}"></td>
+			<td th:text="${uom.uomType}"></td>
+			<td th:text="${uom.uomModel}"></td>
+			<td th:text="${uom.description}"></td>
+			<td>
+				<a th:href="@{/uom/delete/{uid}(uid=${uom.uid})}">DELETE</a>
+			</td>
+		</tr>
+	</table>
+	<span th:text="${message}"></span>
+</body>
+</html>
